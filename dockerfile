@@ -6,4 +6,6 @@ COPY . /var/www/html/
 
 RUN a2enmod rewrite
 
-EXPOSE 80
+RUN echo "display_errors=On" >> /usr/local/etc/php/conf.d/errors.ini && \
+    echo "display_startup_errors=On" >> /usr/local/etc/php/conf.d/errors.ini && \
+    echo "error_reporting=E_ALL" >> /usr/local/etc/php/conf.d/errors.ini
